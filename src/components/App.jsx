@@ -157,8 +157,8 @@ export default class App extends React.Component {
           break;
         }
         case "password": {
-          if (!errors[field] && newValues[field].length < 3) {
-            errors[field] = "Must be 3 character or more";
+          if (!errors[field] && newValues[field].length < 6) {
+            errors[field] = "Must be 6 character or more";
           }
           break;
         }
