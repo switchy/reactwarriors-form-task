@@ -35,7 +35,7 @@ class FormSelectField extends React.Component {
         >
           {this.getOptionsItems(options)}
         </select>
-        {error && (
+        { error && (
           <div className="invalid-feedback">
             {error}
           </div>

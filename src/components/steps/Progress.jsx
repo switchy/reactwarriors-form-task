@@ -37,7 +37,7 @@ const Progress = props => {
   return (
     <div className="steps container mb-3">
       <div className="row">
-        {cssClass.map((css, idx) => {
+        { cssClass.map((css, idx) => {
           return (
             <div className="col-3 pl-0 pr-0 text-center" key={idx}>
               <div className="d-none d-md-block">

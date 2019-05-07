@@ -4,7 +4,7 @@ import FormTextField from "../FormTextField";
 class Basic extends React.Component {
 
   render() {
-    const { values, errors, onChangeHandler, onNextStepHandler } = this.props;
+    const { values, errors, onChangeHandler } = this.props;
 
     return (
       <Fragment>
@@ -87,29 +87,12 @@ class Basic extends React.Component {
               Є відкритий issue https://github.com/twbs/bootstrap/issues/25540
               */
             className={`custom-control-input ${errors.gender ? " is-invalid" : ""}`} />
-          {errors.gender && (
+          { errors.gender && (
             <div className="invalid-feedback">
               {errors.gender}
             </div>
           )}
         </fieldset>
-
-        <div className="d-flex justify-content-center">
-          <button
-            disabled
-            type="button"
-            className="btn btn-light mr-4"
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={onNextStepHandler}
-          >
-            Next
-          </button>
-        </div>
 
       </Fragment>
     );

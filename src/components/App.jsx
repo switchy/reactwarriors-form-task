@@ -4,6 +4,7 @@ import Basic from "./steps/Basic";
 import Contacts from "./steps/Contacts";
 import Avatar from "./steps/Avatar";
 import Finish from "./steps/Finish";
+import ActionButtons from "./steps/ActionButtons";
 
 export default class App extends React.Component {
   constructor() {
@@ -250,6 +251,18 @@ export default class App extends React.Component {
                   onResetStepHandler={this.onResetForm}
                 />
               )}
+
+              <ActionButtons
+                onNextStepHandler={
+                  this.state.step < 4 ? this.onNextStep : false
+                }
+                onPrevStepHandler={
+                  this.state.step > 1 && this.state.step < 5 ? this.onPrevStep : false
+                }
+                onResetStepHandler={
+                  this.state.step === 4 ? this.onResetForm : false
+                }
+              />
 
             </form>
           </div>

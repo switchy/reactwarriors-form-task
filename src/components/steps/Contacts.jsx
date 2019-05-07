@@ -2,12 +2,24 @@ import React, { Fragment } from "react";
 import FormTextField from "../FormTextField";
 import FormSelectField from "../FormSelectField";
 import countries from "../../data/countries";
-import citys from "../../data/citys";
+import cities from "../../data/cities";
 
 class Contacts extends React.Component {
 
   render() {
-    const { values, errors, onChangeHandler, onNextStepHandler, onPrevStepHandler } = this.props;
+    const { values, errors, onChangeHandler } = this.props;
+
+    const filteredCities = Object.keys(cities)
+      .filter(key => (
+        Number(cities[key].country) === Number(values.country)
+      ))
+      .reduce((obj, id) => {
+        obj.push({
+          id: id,
+          name: cities[id].name
+        });
+        return obj;
+      }, []);
 
     return (
       <Fragment>
@@ -48,27 +60,13 @@ class Contacts extends React.Component {
           id="city"
           name="city"
           value={values.city}
-          options={[{id: "", name: "Select city"}, ...citys]}
+          options={[
+            {id: "", name: "Select city"},
+            ...filteredCities
+          ]}
           onChange={onChangeHandler}
           error={errors.city}
         />
-
-        <div className="d-flex justify-content-center">
-          <button
-            type="button"
-            className="btn btn-light mr-4"
-            onClick={onPrevStepHandler}
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={onNextStepHandler}
-          >
-            Next
-          </button>
-        </div>
 
       </Fragment>
     );

@@ -29,7 +29,7 @@ const FormTextField = props => {
         onChange={onChange}
         {...optAttrs}
       />
-      {error && (
+      { error && (
         <div className="invalid-feedback">
           {error}
         </div>

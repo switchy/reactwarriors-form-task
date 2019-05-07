@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import countries from "../../data/countries";
-import citys from "../../data/citys";
+import cities from "../../data/cities";
 
 
 class Finish extends React.Component {
 
   render() {
-    const { values, onPrevStepHandler, onResetStepHandler } = this.props;
+    const { values } = this.props;
 
     return (
       <Fragment>
@@ -32,28 +32,11 @@ class Finish extends React.Component {
               <p><strong>Location:</strong> {
                 countries.find((value) => (Number(value.id) === Number(values.country))).name
               }, {
-                citys.find((value) => (Number(value.id) === Number(values.city))).name
+                cities[String(values.city)].name
               }
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="d-flex justify-content-center">
-          <button
-            type="button"
-            className="btn btn-light mr-4"
-            onClick={onPrevStepHandler}
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={onResetStepHandler}
-          >
-            Reset
-          </button>
         </div>
 
       </Fragment>

@@ -4,7 +4,7 @@ import { DEFAULT_AVATAR_PATH } from "../../utils";
 class Avatar extends React.Component {
 
   render() {
-    const { values, errors, onChangeHandler, onNextStepHandler, onPrevStepHandler } = this.props;
+    const { values, errors, onChangeHandler } = this.props;
 
     return (
       <Fragment>
@@ -31,29 +31,12 @@ class Avatar extends React.Component {
             >
               Choose avatar
             </label>
-            {errors.avatar && (
+            { errors.avatar && (
               <div className="invalid-feedback">
                 {errors.avatar}
               </div>
             )}
           </div>
-        </div>
-
-        <div className="d-flex justify-content-center">
-          <button
-            type="button"
-            className="btn btn-light mr-4"
-            onClick={onPrevStepHandler}
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={onNextStepHandler}
-          >
-            Next
-          </button>
         </div>
 
       </Fragment>
