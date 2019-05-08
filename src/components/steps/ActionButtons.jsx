@@ -35,15 +35,13 @@ class ActionButtons extends React.Component {
               Next
             </button>
             :
-            <div className="d-flex justify-content-center">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={onResetStepHandler}
-              >
-                Reset
-              </button>
-            </div>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={onResetStepHandler}
+            >
+              Reset
+            </button>
           }
         </div>
 
