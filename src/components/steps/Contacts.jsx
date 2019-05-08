@@ -10,14 +10,13 @@ class Contacts extends React.Component {
     const { values, errors, onChangeHandler } = this.props;
 
     const filteredCities = Object.keys(cities)
-      .filter(key => (
-        Number(cities[key].country) === Number(values.country)
-      ))
-      .reduce((obj, id) => {
-        obj.push({
-          id: id,
-          name: cities[id].name
-        });
+      .reduce((obj, key) => {
+        if (Number(cities[key].country) === Number(values.country)) {
+          obj.push({
+            id: key,
+            name: cities[key].name
+          });
+        }
         return obj;
       }, []);
 
